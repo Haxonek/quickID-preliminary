@@ -7,10 +7,12 @@ The major portion of the project, the app, is headed by a separate "devision".
 
 Some of the major points:
 
-* built on top of three models as of now, University(Devise), StudentOrg, and
-Student.
+* built on top of three models as of now, University(Devise), StudentOrg, and Student.
 
-* The graphs can/will be made with D3, which is a wonderful framework that I
-just found and fell in love with.
+* The graphs can/will be made with D3, which is a wonderful framework that I just found and fell in love with.
+
+* The data collection will be done with the app, and I don't yet see how it will be used to display information.
+
+* We will want to add a significant number of other methods to collect data before deploying and in the final app.
 
 * I'm only doing this because I've always wanted to have a cool readme.rdoc
