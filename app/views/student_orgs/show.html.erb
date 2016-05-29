@@ -1,0 +1,36 @@
+
+<p>
+  <strong>Username:</strong>
+  <%= @student_org.username %>
+</p>
+
+<p>
+  <strong>Encrypted password:</strong>
+  <%= @student_org.encrypted_password %>
+</p>
+
+<p>
+  <strong>Sign in count:</strong>
+  <%= @student_org.sign_in_count %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @student_org.university_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @student_org.description %>
+</p>
+
+<h4>Show the students signed in</h4>
+
+<% @students.each do |student| %>
+  <%= student.student_id %> ||
+  <%= student.student_org_id %> ||
+  <%= student.created_at %><br />
+<% end %>
+
+<%= link_to 'Edit', edit_student_org_path(@student_org) %> |
+<%= link_to 'Back', student_orgs_path %>

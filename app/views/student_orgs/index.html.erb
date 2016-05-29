@@ -1,0 +1,31 @@
+<h1>Listing Student Orgs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Encrypted password</th>
+      <th>University</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_orgs.each do |student_org| %>
+      <tr>
+        <td><%= student_org.username %></td>
+        <td><%= student_org.encrypted_password %></td>
+        <td><%= student_org.university_id %></td>
+        <td><%= student_org.description %></td>
+        <td><%= link_to 'Show', student_org %></td>
+        <td><%= link_to 'Edit', edit_student_org_path(student_org) %></td>
+        <td><%= link_to 'Destroy', student_org, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student org', new_student_org_path %>

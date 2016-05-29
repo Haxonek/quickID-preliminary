@@ -1,0 +1,15 @@
+<h1>Universities#index</h1>
+<p>Find me in app/views/universities/index.html.erb</p>
+
+<% if university_signed_in? %>
+  Uni ID: <%= current_university.id %><br />
+  <%= current_university.email %><br />
+  <%= current_university.notes %><br />
+  <%= link_to 'View Student Organizations', student_orgs_path %>
+  <%= link_to 'University Account', edit_university_registration_path %><br />
+  <%= link_to 'Sign out', destroy_university_session_path %><br />
+<% else %>
+  <%= link_to 'University sign in', new_university_session_path %><br/>
+  <%= link_to 'University Sign up', new_university_registration_path %><br/>
+<% end %>
+<%= link_to 'Student organization sign in', org_sign_in_path %><br/>

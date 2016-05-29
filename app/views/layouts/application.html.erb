@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuickID</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% flash.each do |name, msg| %>
+	 <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+	<% end %>
+
+  <% if university_signed_in? %>
+    <%= content_tag(:h4, current_university.name) %><br />
+  <% end %>
+  <%= link_to "Home", root_path %>
+
+  <%= yield %>
+
+</body>
+</html>
