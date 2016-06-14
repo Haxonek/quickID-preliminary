@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'org_sign_in' => 'student_orgs#sign_in'
   post 'org_sign_in' => 'student_orgs#verify_student_org'
 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

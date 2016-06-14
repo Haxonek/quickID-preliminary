@@ -39,6 +39,33 @@
   <p>This data is dummy data; does not yet use the above selection.</p>
 </div>
 
+<p>The data converted to javascript</p>
+<div class="temp"></div>
+<script>
+  // var firstDate = students[0].created_at;
+
+  d3.json( <%= @student_org.id %> + ".json", function (data) {
+    var canvas = d3.select(".temp")
+      .append("svg")
+      .attr("height", "200px")
+      .attr("width", "100%");
+
+    // canvas.append("text").text("Hello World!").attr("y",10);
+
+    canvas.selectAll("text")
+      .data(data)
+      .enter()
+      .append("text")
+      .text( function (d) {
+        return d.created_at;
+      } )
+      .attr("y", function (d,i) {
+        return 17 * i;
+      } );
+  } );
+
+</script>
+
 <style>
 
 .d3-wrapper {

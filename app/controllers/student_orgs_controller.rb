@@ -13,6 +13,12 @@ class StudentOrgsController < ApplicationController
   # GET /student_orgs/1.json
   def show
     @students = Student.all.where(student_org_id: params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @students.as_json(only: [:created_at]) }
+    end
+    # can be done with jbuilder but idk why I'd need that
   end
 
   # GET /student_orgs/new
