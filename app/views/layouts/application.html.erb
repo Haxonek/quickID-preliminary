@@ -3,21 +3,30 @@
 <head>
   <title>QuickID</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <% flash.each do |name, msg| %>
-	 <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-	<% end %>
-
-  <% if university_signed_in? %>
-    <%= content_tag(:h4, current_university.name) %><br />
-  <% end %>
-  <%= link_to "Home", root_path %>
-
-  <%= yield %>
-
+  <div class="container">
+    <div class="row">
+      <nav class="nav-wrapper">
+        <% if university_signed_in? %>
+          <%= link_to "#{current_university.name}", university_path(current_university.id), class: "nav-item-link" %>
+        <% end %>
+        <%= link_to "Home", root_path, class: "nav-item-link" %>
+        <%= link_to "About us", about_us_path, class: "nav-item-link" %>
+        <%= link_to "Contact us", contact_us_path, class: "nav-item-link" %>
+      </nav>
+    </div>
+    <div class="row">
+      <% flash.each do |name, msg| %>
+    	 <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+    	<% end %>
+    </div>
+    <%= yield %>
+  </div>
 </body>
 </html>

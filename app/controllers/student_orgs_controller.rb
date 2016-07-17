@@ -1,7 +1,6 @@
 class StudentOrgsController < ApplicationController
   before_action :set_student_org, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_university!
-  # after_action :verify_student_org, only: [:sign_in]
+  # before_action :authenticate_university!
 
   # GET /student_orgs
   # GET /student_orgs.json
@@ -31,17 +30,20 @@ class StudentOrgsController < ApplicationController
   end
 
   def sign_in
-    @student_org = StudentOrg
+    # @student_org = StudentOrg.find(param[:id])
+    @student_org = StudentOrg.new
+    # bcrypt not in use yet!!!
   end
 
   def verify_student_org
-    unless @temp.nil? || @temp.encrypted_password.nil?
-      @temp = StudentOrg.find(params[:username]).first
-      if @temp.encrypted_password == params[:encrypted_password]
-        redirect_to show_student_org_path(params[:id])
-      else
-        render 'sign_in'
-      end
+    @student_org = StudentOrg.find(params[:student_org][:id])
+    if @student_org.encrypted_password == params[:student_org][:encrypted_password]
+      # increments the total number of sign ins
+      @student_org.increment!(:sign_in_count, by = 1)
+      # redirects to the student org description
+      redirect_to student_org_path(params[:student_org][:id])
+    else
+      render 'sign_in'
     end
   end
 

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  get 'about_us' => 'about#us'
+  get 'contact_us' => 'about#contact'
+
   devise_for :universities
-  resources :student_orgs
+  resources :student_orgs # do
+    # member do
+    #   get 'sign_in'
+    #   post 'verify_student_org'
+    # end
+  # end
 
   root 'universities#index'
 

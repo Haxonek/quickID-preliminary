@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+
+/*
+  nav menu styling
+*/
+
+.nav-wrapper {
+  display: flex;
+}
+
+.nav-item-link {
+  flex-grow: 1;
+  padding: .7em;
+  color: #444;
+  border-bottom: 2px solid #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.1em;
+  transition: .3s;
+}
+
+.nav-item-link:hover {
+  border-bottom: 2px solid #efefef;
+}
+
+.border {
+  border: solid 1px #333;
+}
+
+.field {
+  padding: 0;
+}
+
+input {
+  width: 100%;
+}
+
+/*
+  Fields
+*/
+
+.field {
+  margin-bottom: 1.2em;
+}
